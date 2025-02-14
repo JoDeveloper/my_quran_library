@@ -99,6 +99,15 @@ class AyahLongClickDialog extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
+              // GestureDetector(
+              //   onTap: () {
+
+              //   },
+              //   child: const Icon(
+              //     Icons.copy_rounded,
+              //     color: Colors.grey,
+              //   ),
+              // )
             ],
           ),
         ),

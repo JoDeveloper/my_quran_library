@@ -11,8 +11,7 @@ class QuranLibrary {
       bool overwriteBookmarks = false}) async {
     // Get.put(QuranController());
     await GetStorage.init();
-    QuranCtrl.instance.state.isDownloadedV2Fonts.value =
-        GetStorage().read(StorageConstants().isDownloadedCodeV2Fonts) ?? false;
+    QuranCtrl.instance.state.isDownloadedV2Fonts.value = true;
     QuranRepository().getLastPage();
     await QuranCtrl.instance.loadFontsQuran();
     await QuranCtrl.instance.loadQuran();
@@ -23,6 +22,7 @@ class QuranLibrary {
         GetStorage().read(StorageConstants().isBold) ?? 0;
     quranCtrl.state.fontsSelected2.value =
         GetStorage().read(StorageConstants().fontsSelected) ?? 0;
+    GetStorage().write(StorageConstants().isDownloadedCodeV2Fonts, true);
     // quranCtrl.state.isTajweed.value =
     //     GetStorage().read(StorageConstants().isTajweed) ?? 0;
     quranCtrl.state.fontsDownloadedList.value = (GetStorage()

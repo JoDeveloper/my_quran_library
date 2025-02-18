@@ -50,7 +50,6 @@ part 'presentation/widgets/all_quran_widget.dart';
 part 'presentation/widgets/ayah_long_click_dialog.dart';
 part 'presentation/widgets/bsmallah_widget.dart';
 part 'presentation/widgets/custom_span.dart';
-part 'presentation/widgets/default_drawer.dart';
 part 'presentation/widgets/fonts_download_dialog.dart';
 part 'presentation/widgets/quran_fonts_page.dart';
 part 'presentation/widgets/quran_library_search_screen.dart';

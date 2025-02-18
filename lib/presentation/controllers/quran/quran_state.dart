@@ -42,7 +42,7 @@ class QuranState {
   bool isQuranLoaded = false;
   // RxBool isFontsDownloaded = false.obs;
   RxBool isDownloadingFonts = false.obs;
-  RxBool isDownloadedV2Fonts = false.obs;
+  RxBool isDownloadedV2Fonts = true.obs;
   RxList<int> fontsDownloadedList = <int>[].obs;
   // RxInt fontsSelected = 0.obs;
   RxInt fontsSelected2 = 0.obs;

@@ -205,54 +205,54 @@ class QuranLibraryScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: backgroundColor ??
               (isDark ? const Color(0xff202020) : const Color(0xfffaf7f3)),
-          appBar: appBar ??
-              (useDefaultAppBar
-                  ? AppBar(
-                      backgroundColor: backgroundColor ??
-                          (isDark
-                              ? const Color(0xff202020)
-                              : const Color(0xfffaf7f3)),
-                      leading: Builder(
-                        builder: (context) => IconButton(
-                          icon: Icon(
-                            Icons.menu,
-                            color: isDark ? Colors.white : Colors.black,
-                          ),
-                          onPressed: () {
-                            Scaffold.of(context).openDrawer();
-                          },
-                        ),
-                      ),
-                      elevation: 0,
-                      actions: [
-                        // FontsDownloadDialog(
-                        //   downloadFontsDialogStyle: downloadFontsDialogStyle ??
-                        //       DownloadFontsDialogStyle(
-                        //         title: 'الخطوط',
-                        //         titleColor:
-                        //             isDark ? Colors.white : Colors.black,
-                        //         notes:
-                        //             'لجعل مظهر المصحف مشابه لمصحف المدينة يمكنك تحميل خطوط المصحف',
-                        //         notesColor:
-                        //             isDark ? Colors.white : Colors.black,
-                        //         linearProgressBackgroundColor:
-                        //             Colors.blue.shade100,
-                        //         linearProgressColor: Colors.blue,
-                        //         downloadButtonBackgroundColor: Colors.blue,
-                        //         downloadingText: 'جارِ التحميل',
-                        //         backgroundColor: isDark
-                        //             ? Color(0xff202020)
-                        //             : const Color(0xFFF7EFE0),
-                        //       ),
-                        //   languageCode: languageCode,
-                        //   isDark: isDark,
-                        // )
-                      ],
-                    )
-                  : null),
-          // drawer: appBar == null && useDefaultAppBar
-          //     ? _DefaultDrawer(languageCode ?? 'ar', isDark)
-          //     : null,
+          // appBar: appBar ??
+          //     (useDefaultAppBar
+          //         ? AppBar(
+          //             backgroundColor: backgroundColor ??
+          //                 (isDark
+          //                     ? const Color(0xff202020)
+          //                     : const Color(0xfffaf7f3)),
+          //             leading: Builder(
+          //               builder: (context) => IconButton(
+          //                 icon: Icon(
+          //                   Icons.menu,
+          //                   color: isDark ? Colors.white : Colors.black,
+          //                 ),
+          //                 onPressed: () {
+          //                   Scaffold.of(context).openDrawer();
+          //                 },
+          //               ),
+          //             ),
+          //             elevation: 0,
+          //             actions: [
+          //               // FontsDownloadDialog(
+          //               //   downloadFontsDialogStyle: downloadFontsDialogStyle ??
+          //               //       DownloadFontsDialogStyle(
+          //               //         title: 'الخطوط',
+          //               //         titleColor:
+          //               //             isDark ? Colors.white : Colors.black,
+          //               //         notes:
+          //               //             'لجعل مظهر المصحف مشابه لمصحف المدينة يمكنك تحميل خطوط المصحف',
+          //               //         notesColor:
+          //               //             isDark ? Colors.white : Colors.black,
+          //               //         linearProgressBackgroundColor:
+          //               //             Colors.blue.shade100,
+          //               //         linearProgressColor: Colors.blue,
+          //               //         downloadButtonBackgroundColor: Colors.blue,
+          //               //         downloadingText: 'جارِ التحميل',
+          //               //         backgroundColor: isDark
+          //               //             ? Color(0xff202020)
+          //               //             : const Color(0xFFF7EFE0),
+          //               //       ),
+          //               //   languageCode: languageCode,
+          //               //   isDark: isDark,
+          //               // )
+          //             ],
+          //           )
+          //         : null),
+          // // drawer: appBar == null && useDefaultAppBar
+          // //     ? _DefaultDrawer(languageCode ?? 'ar', isDark)
+          // //     : null,
           body: SafeArea(
             child: withPageView
                 ? PageView.builder(

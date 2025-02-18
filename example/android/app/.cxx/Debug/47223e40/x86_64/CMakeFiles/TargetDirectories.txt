@@ -1,0 +1,2 @@
+/Users/joe/Documents/Dev/flutter_projects/my_quran_library/example/android/app/.cxx/Debug/47223e40/x86_64/CMakeFiles/edit_cache.dir
+/Users/joe/Documents/Dev/flutter_projects/my_quran_library/example/android/app/.cxx/Debug/47223e40/x86_64/CMakeFiles/rebuild_cache.dir

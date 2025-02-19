@@ -102,7 +102,7 @@ class QuranLibraryScreen extends StatelessWidget {
 
   /// إذا كنت تريد تغيير كلمة "الجزء" إلى كلمة أخرى أو ترجمتها فقط قم بتمريرها لـ [juzName]
   ///
-  /// If you want to change the word “الجزء” to another word or translate it just pass it to [juzName].
+  /// If you want to change the word "الجزء" to another word or translate it just pass it to [juzName].
   ///
   final String? juzName;
 
@@ -147,7 +147,7 @@ class QuranLibraryScreen extends StatelessWidget {
 
   /// إذا كنت تريد تغيير كلمة "سجدة" إلى كلمة أخرى أو ترجمتها فقط قم بتمريرها لـ [sajdaName]
   ///
-  /// If you want to change the word “سجدة” to another word or translate it just pass it to [sajdaName].
+  /// If you want to change the word "سجدة" to another word or translate it just pass it to [sajdaName].
   ///
   final String? sajdaName;
 
@@ -267,29 +267,122 @@ class QuranLibraryScreen extends StatelessWidget {
                     },
                     pageSnapping: true,
                     itemBuilder: (ctx, index) {
-                      return _pageViewBuild(
-                        context,
-                        index,
-                        quranCtrl,
+                      return QuranPageView(
+                        pageIndex: index,
+                        quranCtrl: quranCtrl,
+                        circularProgressWidget: circularProgressWidget,
+                        languageCode: languageCode,
+                        juzName: juzName,
+                        sajdaName: sajdaName,
+                        topTitleChild: topTitleChild,
+                        bookmarkList: bookmarkList,
+                        textColor: textColor,
+                        ayahIconColor: ayahIconColor,
+                        showAyahBookmarkedIcon: showAyahBookmarkedIcon,
+                        onFontsAyahLongPress: onFontsAyahLongPress,
+                        bookmarksColor: bookmarksColor,
+                        surahInfoStyle: surahInfoStyle,
+                        surahNameStyle: surahNameStyle,
+                        bannerStyle: bannerStyle,
+                        basmalaStyle: basmalaStyle,
+                        onSurahBannerPress: onSurahBannerPress,
+                        surahNumber: surahNumber,
+                        ayahSelectedBackgroundColor:
+                            ayahSelectedBackgroundColor,
+                        onPagePress: onPagePress,
+                        isDark: isDark,
+                        onDefaultAyahLongPress: onDefaultAyahLongPress,
                       );
                     },
                   )
-                : _pageViewBuild(
-                    context,
-                    pageIndex,
-                    quranCtrl,
+                : QuranPageView(
+                    pageIndex: pageIndex,
+                    quranCtrl: quranCtrl,
+                    circularProgressWidget: circularProgressWidget,
+                    languageCode: languageCode,
+                    juzName: juzName,
+                    sajdaName: sajdaName,
+                    topTitleChild: topTitleChild,
+                    bookmarkList: bookmarkList,
+                    textColor: textColor,
+                    ayahIconColor: ayahIconColor,
+                    showAyahBookmarkedIcon: showAyahBookmarkedIcon,
+                    onFontsAyahLongPress: onFontsAyahLongPress,
+                    bookmarksColor: bookmarksColor,
+                    surahInfoStyle: surahInfoStyle,
+                    surahNameStyle: surahNameStyle,
+                    bannerStyle: bannerStyle,
+                    basmalaStyle: basmalaStyle,
+                    onSurahBannerPress: onSurahBannerPress,
+                    surahNumber: surahNumber,
+                    ayahSelectedBackgroundColor: ayahSelectedBackgroundColor,
+                    onPagePress: onPagePress,
+                    isDark: isDark,
+                    onDefaultAyahLongPress: onDefaultAyahLongPress,
                   ),
           ),
         ),
       ),
     );
   }
+}
 
-  Widget _pageViewBuild(
-    BuildContext context,
-    int pageIndex,
-    QuranCtrl quranCtrl,
-  ) {
+class QuranPageView extends StatelessWidget {
+  final int pageIndex;
+  final QuranCtrl quranCtrl;
+  final Widget? circularProgressWidget;
+  final String? languageCode;
+  final String? juzName;
+  final String? sajdaName;
+  final Widget? topTitleChild;
+  final List bookmarkList;
+  final Color? textColor;
+  final Color? ayahIconColor;
+  final bool showAyahBookmarkedIcon;
+  final void Function(LongPressStartDetails details, AyahFontsModel ayah)?
+      onFontsAyahLongPress;
+  final Color? bookmarksColor;
+  final SurahInfoStyle? surahInfoStyle;
+  final SurahNameStyle? surahNameStyle;
+  final BannerStyle? bannerStyle;
+  final BasmalaStyle? basmalaStyle;
+  final void Function(SurahNamesModel surah)? onSurahBannerPress;
+  final int? surahNumber;
+  final Color? ayahSelectedBackgroundColor;
+  final VoidCallback? onPagePress;
+  final bool isDark;
+  final void Function(LongPressStartDetails details, AyahModel ayah)?
+      onDefaultAyahLongPress;
+
+  const QuranPageView({
+    super.key,
+    required this.pageIndex,
+    required this.quranCtrl,
+    this.circularProgressWidget,
+    this.languageCode,
+    this.juzName,
+    this.sajdaName,
+    this.topTitleChild,
+    this.bookmarkList = const [],
+    this.textColor,
+    this.ayahIconColor,
+    this.showAyahBookmarkedIcon = true,
+    this.onFontsAyahLongPress,
+    this.bookmarksColor,
+    this.surahInfoStyle,
+    this.surahNameStyle,
+    this.bannerStyle,
+    this.basmalaStyle,
+    this.onSurahBannerPress,
+    this.surahNumber,
+    this.ayahSelectedBackgroundColor,
+    this.onPagePress,
+    this.isDark = false,
+    this.onDefaultAyahLongPress,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     List<String> newSurahs = [];
     quranCtrl.isDownloadFonts.value ? quranCtrl.prepareFonts(pageIndex) : null;

@@ -172,8 +172,24 @@ class QuranFontsPage extends StatelessWidget {
                                   ),
                             FittedBox(
                               fit: BoxFit.fitWidth,
-                              child: Obx(() =>
-                                  _richTextWidget(context, quranCtrl, ayahs)),
+                              child: Obx(() => RichTextWidget(
+                                    context: context,
+                                    quranCtrl: quranCtrl,
+                                    ayahs: ayahs,
+                                    pageIndex: pageIndex,
+                                    bookmarkList: bookmarkList,
+                                    textColor: textColor,
+                                    ayahIconColor: ayahIconColor,
+                                    showAyahBookmarkedIcon:
+                                        showAyahBookmarkedIcon,
+                                    bookmarks: bookmarks,
+                                    bookmarksAyahs: bookmarksAyahs,
+                                    bookmarksColor: bookmarksColor,
+                                    ayahSelectedBackgroundColor:
+                                        ayahSelectedBackgroundColor,
+                                    onFontsAyahLongPress: onFontsAyahLongPress,
+                                    isDark: isDark,
+                                  )),
                             ),
                             quranCtrl.downThePageIndex.contains(pageIndex)
                                 ? SurahHeaderWidget(
@@ -245,9 +261,45 @@ class QuranFontsPage extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _richTextWidget(
-      BuildContext context, QuranCtrl quranCtrl, List<AyahFontsModel> ayahs) {
+class RichTextWidget extends StatelessWidget {
+  final BuildContext context;
+  final QuranCtrl quranCtrl;
+  final List<AyahFontsModel> ayahs;
+  final int pageIndex;
+  final List? bookmarkList;
+  final Color? textColor;
+  final Color? ayahIconColor;
+  final bool showAyahBookmarkedIcon;
+  final Map<int, List<BookmarkModel>> bookmarks;
+  final List<int> bookmarksAyahs;
+  final Color? bookmarksColor;
+  final Color? ayahSelectedBackgroundColor;
+  final Function(LongPressStartDetails details, AyahFontsModel ayah)?
+      onFontsAyahLongPress;
+  final bool isDark;
+
+  const RichTextWidget({
+    super.key,
+    required this.context,
+    required this.quranCtrl,
+    required this.ayahs,
+    required this.pageIndex,
+    this.bookmarkList,
+    this.textColor,
+    this.ayahIconColor,
+    this.showAyahBookmarkedIcon = true,
+    required this.bookmarks,
+    required this.bookmarksAyahs,
+    this.bookmarksColor,
+    this.ayahSelectedBackgroundColor,
+    this.onFontsAyahLongPress,
+    this.isDark = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return RichText(
       textDirection: TextDirection.rtl,
       textAlign: TextAlign.center,
